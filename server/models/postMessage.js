@@ -1,10 +1,11 @@
 import mongoose from 'mongoose'
 
 const postSchema = mongoose.Schema({
-  name: String,
+  title: String,
   description: String,
   year: Number,
-  duration: String
+  duration: String,
+  image: String
 });
 
 const PostMessage = mongoose.model('PostMessage', postSchema);

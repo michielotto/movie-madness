@@ -1,3 +1,12 @@
 .Post {
-  background: blue;
+  width: 100%;
+  border: 2px solid red;
+  margin: 0 0 2em 0;
+  @media(min-width: 768px){
+    width: 45%;
+    margin: 0 1em 2em 1em;
+  }
+  @media(min-width: 1024px){
+    width: 30%;
+  }
 }

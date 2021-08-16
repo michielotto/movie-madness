@@ -28,6 +28,7 @@ body {
   background: var(--bunker);
   backface-visibility: hidden;
   perspective: 2000px;
+  color: white;
 }
 
 picture, img {

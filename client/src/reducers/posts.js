@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes"
 
 const reducer = (posts = [], action) => { 
   switch (action.type) {
@@ -7,12 +7,12 @@ const reducer = (posts = [], action) => {
     case DELETE : 
       return posts.filter((post) => post._id !== action.payload)
     case FETCH_ALL:
-      return action.payload;
+      return action.payload
     case CREATE:
-      return [...posts, action.payload];
+      return [...posts, action.payload]
     default:
-      return posts;
+      return posts
   }
 }
 
-export default reducer;
+export default reducer

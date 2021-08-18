@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import _ from './style.module.scss';
+import React, { useState, useEffect } from 'react'
+import _ from './style.module.scss'
 import FileBase from 'react-file-base64'
-import { useDispatch, useSelector } from 'react-redux';
-import { createPost, updatePost } from '../../actions/posts';
+import { useDispatch, useSelector } from 'react-redux'
+import { createPost, updatePost } from '../../actions/posts'
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ title: '', description: '', year: '', duration: '', image: '' });
+  const [postData, setPostData] = useState({ title: '', description: '', year: '', duration: '', image: '' })
   const post = useSelector(state => currentId ? state.posts.find((p) => p._id === currentId) : null);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const user = JSON.parse(localStorage.getItem('profile'))
   useEffect(() => {
     if (post) setPostData(post)
   }, [post])
   const handleSubmit = e => {
-    e.preventDefault();
-    currentId ? dispatch(updatePost(currentId, postData)) : dispatch(createPost(postData));
-    clear();
+    e.preventDefault()
+    currentId ? dispatch(updatePost(currentId, { ...postData, name: user?.result?.name })) : dispatch(createPost({ ...postData, name: user?.result?.name }))
+    clear()
   };
   const clear = () => {
-    setCurrentId(null);
-    setPostData({ title: '', description: '', year: '', duration: '', image: '' });
+    setCurrentId(null)
+    setPostData({ title: '', description: '', year: '', duration: '', image: '' })
+  }
+  if (!user?.result?.name) {
+    return (
+      <h1>Please sign in to view, create, update and delete movies.</h1>
+    )
   }
   return (
     <form className={_.Form} onSubmit={handleSubmit}>
@@ -52,4 +58,4 @@ const Form = ({ currentId, setCurrentId }) => {
   )
 }
 
-export default Form;
+export default Form

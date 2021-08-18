@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
   const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
@@ -26,4 +26,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default Navbar

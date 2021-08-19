@@ -2,13 +2,19 @@
   padding: 3em 1.5em;
   margin: 0 auto;
   max-width: 75em;
-  @media(min-width: 770px){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media(min-width: 770px) {
     padding: 3em 4em;
   }
-  @media(min-width: 1030px){
+  @media(min-width: 1030px) {
     padding: 4em 4em 3em 4rem;
   }
-  @media(min-width: 1300px){
+  @media(min-width: 1300px) {
     padding: 4em 0 4em 0;
+  }
+  h1 {
+    text-align: center;
   }
 }

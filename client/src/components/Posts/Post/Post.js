@@ -9,13 +9,17 @@ const Post = ({ post, setCurrentId }) => {
     <>
       {(user?.result?.name === post?.name || user?.result?.name === post?.name) && (
         <article className={_.Post}>
-          <img src={post.image} alt={post.title} />
+          <div>
+            <img src={post.image} alt={post.title} />
+            <button onClick={() => setCurrentId(post._id)}>edit</button>
+            <button onClick={() => dispatch(deletePost(post._id))}>Delete</button>
+          </div>
           <h2>{post.title}</h2>
           <p>{post.description}</p>
-          <span>{post.year}</span>
-          <span>{post.duration}</span>
-          <button onClick={() => setCurrentId(post._id)}>Edit</button>
-          <button onClick={() => dispatch(deletePost(post._id))}>Delete</button>
+          <article>
+            <span>year: {post.year}</span>
+            <span>duration: {post.duration}</span>
+          </article>
         </article>
       )}
     </>

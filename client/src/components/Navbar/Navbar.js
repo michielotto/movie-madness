@@ -21,7 +21,7 @@ const Navbar = () => {
     <section className={_.Navbar}>
       <Link to="/"><h3>Movie Madness</h3></Link>
       <span>{user?.result.name}</span>
-      {user ? <button onClick={logout}>Logout</button> : <button><Link to="/auth">Login</Link></button>}
+      {user ? <button onClick={logout}>Logout</button> : <button><Link to="/auth">Sign in</Link></button>}
     </section>
   )
 }
